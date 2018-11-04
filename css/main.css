@@ -474,6 +474,42 @@ textarea {
         cursor: pointer;
     }
 
+.back-to-top {
+    background: #5a5a5a;
+    cursor: pointer;
+    color: #fff;
+    padding: 16px 26px;
+    position: fixed;
+    bottom: 30px;
+    right: -200px;
+    -webkit-box-shadow: 10px 11px 23px -8px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 11px 23px -8px rgba(0,0,0,0.75);
+    box-shadow: 10px 11px 23px -8px rgba(0,0,0,0.75);
+}  
+
+.back-to-top:hover{
+    background-color: #2f2f2f;
+    transition: background-color 0.5s ease;
+}
+
+.back-to-top.show {
+    right: 0;
+    transition: right 0.5s ease;
+}
+
+.back-to-top:before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-left: 3px solid #fff;
+    border-top: 3px solid #fff;
+    transform: rotate(45deg);
+    margin-right: 16px;
+    margin-bottom: -8px;
+    
+
+}
 
 footer {
     background-color: #2f2f2f;
