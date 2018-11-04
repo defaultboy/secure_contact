@@ -167,10 +167,17 @@ textarea {
    }
 
    .main-hero-inner {
-       background: url("../img/news-report.jpg") no-repeat right;
+       background: url("../img/banner1.png") no-repeat bottom right;
        background-size: cover;
        height: 300px;
+       text-align: left;
    }
+
+   .main-hero-inner-2 {
+        background: url("../img/news-report.jpg") no-repeat right;
+        background-size: cover;
+        height: 300px;
+    }  
 
    .hero-text {
        float: left;
@@ -219,7 +226,19 @@ textarea {
        overflow: hidden;
        padding: 0 20px 0 0;
        display: block;
+
    }
+
+   .step-title h3 {
+        color: #222;
+        opacity: 0;
+   }
+
+   .active .step-title h3 {
+        opacity: 1;
+        left: 0;
+        transition: opacity 0.5s ease-out 0.5s;
+    }   
 
    .step-title h3 {
         background-color: #fff;
@@ -250,22 +269,27 @@ textarea {
         padding: 16px 16px 16px 20px;
         margin-left: 20px;
         color: transparent;
-        transition: background-color 0.5s ease-out;
     }
 
     .step-1-list .step-list-item {
         width: 50%;
     }
 
+    .step-2-list .step-list-item {
+        width: 33%;
+    }    
+
     .active .step-list-item,
     .active .how-to-send {
         background-color: #fff;
-        transition: background-color 0.5s ease-in;
+        transition: background-color 0.3s ease-in 0.5s, opacity 0.5s ease-in 0.5s;
         color: #222;
     }
 
     .active .step-list-item:hover, .active .how-to-send:hover {
-        color: #1380A1;
+        color: #1380A1 !important;
+        transition: color 0s;
+        text-decoration: underline;
         cursor: pointer;
     }
 
@@ -296,6 +320,13 @@ textarea {
         margin-top: 0;
         font-size: 20px;
         margin-bottom: 20px;
+        opacity: 0;
+      }
+
+      .active .step-list li h4,
+      .active .step-list li span{
+          opacity: 1;
+          transition: opacity 0.5s ease-out 0.6s;
       }
 
     .step-list-item {
@@ -306,6 +337,7 @@ textarea {
     .step-list-item span{
         display: block;
         max-width: 300px;
+        opacity: 0;
     }
 
     .active .step-list-item:after {
@@ -333,6 +365,10 @@ textarea {
 
     .how-to-send-list{
         display: block;
+    }
+
+    .how-to-send span{
+        opacity: 0;
     }
 
     .how-to-send {
@@ -384,6 +420,7 @@ textarea {
 
     .active .how-to-send img {
         opacity: 1;
+        transition: opacity 0.3s ease-in 0.8;
     }     
 
     .how-to-send .cross-icon {
