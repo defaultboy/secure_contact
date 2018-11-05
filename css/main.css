@@ -220,48 +220,21 @@ textarea {
        transition: opacity 0.5s ease-in;
    }
 
-   .step-title {
-       font-size: 20px;
-       position: relative;
-       overflow: hidden;
-       padding: 0 20px 0 0;
-       display: block;
-
-   }
-
-   .step-title h3 {
-        color: #222;
-        opacity: 0;
-   }
-
-   .active .step-title h3 {
-        opacity: 1;
-        left: 0;
-        transition: opacity 0.5s ease-out 0.5s;
-    }   
-
-   .step-title h3 {
-        background-color: #fff;
-        display: inline-block;
-        padding-right: 20px;
-        position: relative;
-        z-index: 1;    
-    }   
-
-   .step-title:before {
-    content: "";
-    display: block;
-    position: absolute;
-    border-bottom: 1px solid #222;
-    width: 100%;
-    top: 50%;
-    }
-
+    /****** Step list and how to send buttons  ********/
     .step-list {
         list-style-type: none;
         padding: 0;
         display: flex;
     }
+
+   .step-1-list .step-list-item {
+       width: 50%;
+   }
+
+   .step-2-list .step-list-item {
+       width: 33%;
+   }  
+    /******* Invisible *******/
 
     .step-list-item, .how-to-send {
         background-color: #d2d2d2;
@@ -269,78 +242,10 @@ textarea {
         padding: 16px 16px 16px 20px;
         margin-left: 20px;
         color: transparent;
-    }
-
-    .step-1-list .step-list-item {
-        width: 50%;
-    }
-
-    .step-2-list .step-list-item {
-        width: 33%;
-    }    
-
-    .active .step-list-item,
-    .active .how-to-send {
-        background-color: #fff;
-        transition: background-color 0.3s ease-in 0.5s, opacity 0.5s ease-in 0.5s;
-        color: #222;
-    }
-
-    .active .step-list-item:hover, .active .how-to-send:hover {
-        color: #1380A1 !important;
-        transition: color 0s;
-        text-decoration: underline;
-        cursor: pointer;
-    }
-
-    .step-list-item.selected:hover {
-        background-color: #f2efec;
-        color: #222;
-        cursor: pointer;
-    }   
-
-    .step-list-item.selected {
-        background-color: #f2efec;
-        cursor: pointer;
-    }  
-
-    .step-list-item.selected:before {
-        content: "";
-        top: 0;
-        left: 0;
-        position: absolute;
-        background-color: #bb1919;
-        display: block;
-        height: 100%;
-        width: 5px;
-        border-left: 1px solid #bb1919;
-    }      
-
-    .step-list li h4 {
-        margin-top: 0;
-        font-size: 20px;
-        margin-bottom: 20px;
-        opacity: 0;
-      }
-
-      .active .step-list li h4,
-      .active .step-list li span{
-          opacity: 1;
-          transition: opacity 0.5s ease-out 0.6s;
-      }
-
-    .step-list-item {
         position: relative;
-        padding-right: 40px;
-    }   
-
-    .step-list-item span{
-        display: block;
-        max-width: 300px;
-        opacity: 0;
     }
 
-    .active .step-list-item:after {
+    .step-list-item:after {
         content: "";
         display: block;
         border-right: 3px solid #bb1919;
@@ -351,25 +256,36 @@ textarea {
         position: absolute;
         right: 22px;
         top: 22px;
-      }    
-      
-      .step-list-item.selected:after {
-        transform: rotate(45deg);
-        top: 16px;
-      }        
+        opacity: 0;
+      }  
 
-    .step-list li:first-child, .how-to-send-list li:first-child,
-    .how-to-send-list li:first-child span {
-        margin-left: 0;
+    .step-title {
+        font-size: 20px;
+        position: relative;
+        overflow: hidden;
+        padding: 0 20px 0 0;
+        display: block;
+    }
+
+    .step-title h3 {
+        color: #222;
+        background-color: #fff;
+        display: inline-block;
+        padding-right: 20px;
+        position: relative;
+        z-index: 1;
+        opacity: 0;   
+    }    
+
+    .how-to-send span,
+    .step-list-item span{
+        opacity: 0;
     }
 
     .how-to-send-list{
         display: block;
     }
 
-    .how-to-send span{
-        opacity: 0;
-    }
 
     .how-to-send {
         position: relative;
@@ -418,11 +334,6 @@ textarea {
         opacity: 0;
     } 
 
-    .active .how-to-send img {
-        opacity: 1;
-        transition: opacity 0.3s ease-in 0.8;
-    }     
-
     .how-to-send .cross-icon {
         background-color: #5a5a5a;
     }     
@@ -453,6 +364,87 @@ textarea {
     .how-to-send-card p, .how-to-send-card li {
         font-size: 16px;
     } 
+
+    /******** Visible ********/
+    .step-title h3.visible, .active .step-title h3{
+        opacity: 1;
+        left: 0;
+        transition: opacity 0.5s ease-out;
+    }   
+
+    .step-list-item.visible h4,
+    .step-list-item.visible span,
+    .step-list-item.visible:after,
+    .how-to-send.visible img, 
+    .how-to-send span
+    {
+        opacity: 1;
+        transition: opacity 0.5s ease-out;
+    } 
+
+   .step-title:before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-bottom: 1px solid #222;
+    width: 100%;
+    top: 50%;
+    }
+ 
+
+    .step-list-item.visible,
+    .how-to-send.visible {
+        background-color: #fff;
+        position: reltive;
+        transition: background-color 0.3s ease-in;
+        color: #222;
+    }
+
+    .step-list-item.visible:hover, .how-to-send.visible:hover {
+        color: #1380A1 !important;
+        transition: color 0s;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .step-list-item.selected:hover {
+        background-color: #f2efec;
+        color: #222;
+        cursor: pointer;
+    }   
+
+    .step-list-item.selected {
+        background-color: #f2efec;
+        cursor: pointer;
+    }  
+
+    .step-list-item.selected:before {
+        content: "";
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: #bb1919;
+        display: block;
+        height: 100%;
+        width: 5px;
+        border-left: 1px solid #bb1919;
+    }      
+    .step-list li h4 {
+        margin-top: 0;
+        font-size: 20px;
+        margin-bottom: 20px;
+        opacity: 0;
+      }  
+      
+      .step-list-item.selected:after {
+        transform: rotate(45deg);
+        top: 16px;
+      }        
+
+    .step-list li:first-child, .how-to-send-list li:first-child,
+    .how-to-send-list li:first-child span {
+        margin-left: 0;
+    }
 
     .button {
         background: #1d4dbb;

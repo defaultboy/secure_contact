@@ -1,5 +1,12 @@
 $(document).ready(function(){
 
+    $('#step-1 .step-title h3').addClass('visible');
+    $('#step-1 .step-list-item').each(function(i){
+        var row = $(this);
+        setTimeout(function() {
+          row.toggleClass('visible');
+        }, 300*i);
+      })
 
     $('.how-to-send-card').addClass('unavailable');
 
@@ -37,13 +44,27 @@ $(document).ready(function(){
         if($(parent).hasClass('active')){
             $(this).not('.selected').addClass('selected');
             $(this).siblings('.step-list-item.selected').removeClass('selected');
+
             $(parent).next('.step').addClass('active');
+            $(parent).next('.step').delay(600).find('.step-list-item, .how-to-send').each(function(i){
+                console.log(this);
+                var row = $(this);
+                setTimeout(function() {
+                  row.addClass('visible');
+                }, 300*i);
+              })
+
             $(parent).next('.step').find('.step-list-item').removeClass('selected');
 
             console.log(option);
             
             if($(parent).hasClass('step-1')){
+                
                 $('.step-3').removeClass('active');
+                $('.step-3').find('.step-list-item, .how-to-send').removeClass('visible');
+
+
+
                 $('.step-3-list').attr('data-option1', option);
 
                 $([document.documentElement, document.body]).animate({
