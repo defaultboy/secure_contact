@@ -5,7 +5,7 @@ $(document).ready(function(){
         var row = $(this);
         setTimeout(function() {
           row.toggleClass('visible');
-        }, 300*i);
+        }, 200*i);
       })
 
     $('.how-to-send-card').addClass('unavailable');
@@ -46,13 +46,15 @@ $(document).ready(function(){
             $(this).siblings('.step-list-item.selected').removeClass('selected');
 
             $(parent).next('.step').addClass('active');
-            $(parent).next('.step').delay(600).find('.step-list-item, .how-to-send').each(function(i){
-                console.log(this);
-                var row = $(this);
-                setTimeout(function() {
-                  row.addClass('visible');
-                }, 300*i);
-              })
+            setTimeout(function() {
+                $(parent).next('.step').find('.step-list-item, .how-to-send').each(function(i){
+                    console.log(this);
+                    var row = $(this);
+                    setTimeout(function() {
+                    row.addClass('visible');
+                    }, 200*i);
+                });
+            }, 300);
 
             $(parent).next('.step').find('.step-list-item').removeClass('selected');
 

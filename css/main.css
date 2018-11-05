@@ -111,7 +111,10 @@ textarea {
        height: 91px;
        background-color: #bb1919;
        position: relative;
-       overflow: hidden;
+   }
+
+   .site-brand-inner {
+        position: relative;
    }
 
    .site-brand:before {
@@ -124,6 +127,77 @@ textarea {
     bottom: 0;
     left: -20px;
     }   
+
+    #lang-select {
+        float: right;
+        padding: 16px 0;
+        position: absolute;
+        right: 0;
+        z-index: 2;
+    }
+
+    .lang-select-text{
+        display: inline-block;
+        color: #fff;
+        font-size: 14px;
+        padding-right: 12px;
+    }
+
+    .lang-dropdown-container{
+        width: 140px;
+        background-color: #d2d2d2;
+        overflow: hidden;
+        max-height: 28px;
+        float: right;
+        transition: max-height 0.5s ease-in 0.8s; 
+        position: relative;
+
+    }
+
+    .lang-dropdown-container:after{
+        content: "";
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-top: 5px solid #000;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+
+        display: block;
+        width: 0;
+        height: 0;
+
+    }
+
+
+    .lang-dropdown-container:hover, .lang-dropdown-container:hover{
+        max-height: 94px;
+        transition: max-height 0.2s ease-out; 
+    }    
+
+    .lang-select-list{
+        list-style-type: none;
+        padding: 0 0 0 8px;
+        margin: 0;
+
+    }
+
+    .lang-select-item a {
+        text-decoration: none;
+        display: block;
+        padding: 6px;
+        color: #222;
+        font-size: 14px;
+        text-align: left;
+    }
+
+
+    .lang-select-item a:hover {
+        text-decoration: underline;
+        display: block;
+        color: #1d4dbb;
+    }
+
 
    .main{
       padding: 0 20px; 
@@ -303,12 +377,6 @@ textarea {
     .how-to-send.unavailable{
         opacity: 0.6;
     }
-    
-    .how-to-send.unavailable:hover {
-        background-color: transparent;
-        color: #222;
-        cursor: default;
-    }    
 
     .how-to-send .cross-icon {
         display: none;
@@ -376,10 +444,10 @@ textarea {
     .step-list-item.visible span,
     .step-list-item.visible:after,
     .how-to-send.visible img, 
-    .how-to-send span
+    .how-to-send.visible span
     {
         opacity: 1;
-        transition: opacity 0.5s ease-out;
+        transition: opacity 0.8s ease-in-out;
     } 
 
    .step-title:before {
@@ -396,7 +464,7 @@ textarea {
     .how-to-send.visible {
         background-color: #fff;
         position: reltive;
-        transition: background-color 0.3s ease-in;
+        transition: background-color 0.5s ease-in;
         color: #222;
     }
 
@@ -407,11 +475,20 @@ textarea {
         cursor: pointer;
     }
 
-    .step-list-item.selected:hover {
-        background-color: #f2efec;
-        color: #222;
-        cursor: pointer;
+
+    .step-list-item.visible.selected:hover {
+        background-color: #f2efec !important;
+        color: #222 !important;
+        cursor: pointer !important;
+        text-decoration: none;
     }   
+
+    .how-to-send.visible.unavailable:hover {
+        background-color: transparent !important;
+        text-decoration: none !important;
+        color: #222 !important;
+        cursor: default !important;
+    }    
 
     .step-list-item.selected {
         background-color: #f2efec;
